@@ -1,0 +1,547 @@
+[
+  {
+    "name": "Essentials",
+    "items": [
+      {
+        "name": "Backpack",
+        "description": "Refugio 26L Pack",
+        "weight": {
+          "number": 1.62,
+          "unit": "lbs"
+        },
+        "price": "109.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Trail 25 Pack",
+        "weight": {
+          "number": 1.81,
+          "unit": "to"
+        },
+        "price": "99.95"
+      },
+      {
+        "name": "Backpack",
+        "description": "Flash 22 Pack",
+        "weight": {
+          "number": 0.88,
+          "unit": "lbs"
+        },
+        "price": "59.95"
+      },
+      {
+        "name": "Backpack",
+        "description": "Jester Daypack",
+        "weight": {
+          "number": 1.81,
+          "unit": "lbs"
+        },
+        "price": "75.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Recon Pack - Men's",
+        "weight": {
+          "number": 2.57,
+          "unit": "lbs"
+        },
+        "price": "109.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Borealis Pack - Women's",
+        "weight": {
+          "number": 2.05,
+          "unit": "lbs"
+        },
+        "price": "58.93"
+      },
+      {
+        "name": "Backpack",
+        "description": "Raven 28 Pack",
+        "weight": {
+          "number": 2.2,
+          "unit": "lbs"
+        },
+        "price": "120.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Refugio 30L Pack",
+        "weight": {
+          "number": 1.75,
+          "unit": "lbs"
+        },
+        "price": "129.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Nebula 32 Pack",
+        "weight": {
+          "number": 2.12,
+          "unit": "lbs"
+        },
+        "price": "140.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Trail 40 Pack - Men's",
+        "weight": {
+          "number": 2.75,
+          "unit": "to"
+        },
+        "price": "149.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Commuter Pack",
+        "weight": {
+          "number": 1.62,
+          "unit": "lbs"
+        },
+        "price": "89.95"
+      },
+      {
+        "name": "Backpack",
+        "description": "Black Hole Pack - 25 L",
+        "weight": {
+          "number": 1.41,
+          "unit": "lbs"
+        },
+        "price": "149.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Trail 40 Pack - Women's",
+        "weight": {
+          "number": 2.56,
+          "unit": "to"
+        },
+        "price": "149.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Daylite Plus Pack",
+        "weight": {
+          "number": 1.3,
+          "unit": "lbs"
+        },
+        "price": "75.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Ruckpack 28 Recycled Daypack - Men's",
+        "weight": {
+          "number": 1.75,
+          "unit": "lbs"
+        },
+        "price": "89.93"
+      },
+      {
+        "name": "Backpack",
+        "description": "Ruckpack 40 Recycled Pack - Women's",
+        "weight": {
+          "number": 2.19,
+          "unit": "lbs"
+        },
+        "price": "117.93"
+      },
+      {
+        "name": "Backpack",
+        "description": "Daylite Pack Special Edition",
+        "weight": {
+          "number": 1.08,
+          "unit": "lbs"
+        },
+        "price": "65.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Router Pack",
+        "weight": {
+          "number": 2.95,
+          "unit": "lbs"
+        },
+        "price": "159.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Borealis Pack",
+        "weight": {
+          "number": 2.34,
+          "unit": "lbs"
+        },
+        "price": "99.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Flash 55 Pack - Men's",
+        "weight": {
+          "number": 53.0,
+          "unit": "to"
+        },
+        "price": "199.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Traverse 60 Pack - Men's",
+        "weight": {
+          "number": 58.0,
+          "unit": "to"
+        },
+        "price": "259.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Allpa 35 L Travel Pack",
+        "weight": {
+          "number": 3.44,
+          "unit": "lbs"
+        },
+        "price": "200.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Traverse 32 Pack - Women's",
+        "weight": {
+          "number": 2.37,
+          "unit": "to"
+        },
+        "price": "159.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Ruckpack 18 Recycled Daypack",
+        "weight": {
+          "number": 1.12,
+          "unit": "lbs"
+        },
+        "price": "55.93"
+      },
+      {
+        "name": "Backpack",
+        "description": "Daylite Pack",
+        "weight": {
+          "number": 1.08,
+          "unit": "lbs"
+        },
+        "price": "65.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Flash 18 Pack",
+        "weight": {
+          "number": 0.59,
+          "unit": "lbs"
+        },
+        "price": "49.95"
+      },
+      {
+        "name": "Backpack",
+        "description": "Surge Pack - Men's",
+        "weight": {
+          "number": 2.78,
+          "unit": "lbs"
+        },
+        "price": "139.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Miko 20 Pack - Men's",
+        "weight": {
+          "number": 2.0,
+          "unit": "lbs"
+        },
+        "price": "129.95"
+      },
+      {
+        "name": "Backpack",
+        "description": "District 18 Backpack",
+        "weight": {
+          "number": 2.56,
+          "unit": "lbs"
+        },
+        "price": "159.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "District 24 Backpack",
+        "weight": {
+          "number": 2.74,
+          "unit": "lbs"
+        },
+        "price": "169.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Camp 4 Printed Backpack - 32 L",
+        "weight": {
+          "number": 2.28,
+          "unit": "lbs"
+        },
+        "price": "90.73"
+      },
+      {
+        "name": "Backpack",
+        "description": "Ultra-Sil Compression Sack",
+        "weight": {
+          "number": 0.12,
+          "unit": "to"
+        },
+        "price": "34.95 - 52.95"
+      },
+      {
+        "name": "Backpack",
+        "description": "Mira 32 Hydration Pack - Women's",
+        "weight": {
+          "number": 2.5,
+          "unit": "liters"
+        },
+        "price": "220.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Nano 22 H2O Hydration Pack",
+        "weight": {
+          "number": 3.0,
+          "unit": "liters"
+        },
+        "price": "89.95"
+      },
+      {
+        "name": "Backpack",
+        "description": "Tarn 18 Pack - Kids'",
+        "weight": {
+          "number": 1.06,
+          "unit": "lbs"
+        },
+        "price": "49.95"
+      },
+      {
+        "name": "Backpack",
+        "description": "Sojourn Porter 46 Travel Pack",
+        "weight": {
+          "number": 3.44,
+          "unit": "lbs"
+        },
+        "price": "195.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Southwest 55 Pack",
+        "weight": {
+          "number": 55.0,
+          "unit": "liters"
+        },
+        "price": "379.00 - 399.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Ruckpack 40 Recycled Pack - Men's",
+        "weight": {
+          "number": 2.25,
+          "unit": "lbs"
+        },
+        "price": "117.93"
+      },
+      {
+        "name": "Backpack",
+        "description": "Southwest 70 Pack",
+        "weight": {
+          "number": 70.0,
+          "unit": "liters"
+        },
+        "price": "425.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Black Hole Pack - 32 L",
+        "weight": {
+          "number": 1.68,
+          "unit": "lbs"
+        },
+        "price": "169.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Tarn 40 Pack - Kids'",
+        "weight": {
+          "number": 40.0,
+          "unit": "liters"
+        },
+        "price": "119.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Farpoint 65 Wheeled Travel Pack - Men's",
+        "weight": {
+          "number": 6.17,
+          "unit": "lbs"
+        },
+        "price": "320.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Talon 22 Pack - Men's",
+        "weight": {
+          "number": 1.91,
+          "unit": "to"
+        },
+        "price": "160.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Nano 18 H2O Hydration Pack",
+        "weight": {
+          "number": 3.0,
+          "unit": "liters"
+        },
+        "price": "79.95"
+      },
+      {
+        "name": "Backpack",
+        "description": "Fairview 40 Travel Pack - Women's",
+        "weight": {
+          "number": 3.41,
+          "unit": "lbs"
+        },
+        "price": "185.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "eVac Compression Dry Bag",
+        "weight": {
+          "number": 0.22,
+          "unit": "to"
+        },
+        "price": "39.95 - 59.95"
+      },
+      {
+        "name": "Backpack",
+        "description": "Lightweight Compression Stuff Sack",
+        "weight": {
+          "number": 0.19,
+          "unit": "to"
+        },
+        "price": "23.95 - 28.95"
+      },
+      {
+        "name": "Backpack",
+        "description": "3D Hydro Hydration Reservoir - 3 Liters",
+        "weight": {
+          "number": 7.0,
+          "unit": "ounces"
+        },
+        "price": "44.95"
+      },
+      {
+        "name": "Backpack",
+        "description": "Tarn 65 Pack - Kids'",
+        "weight": {
+          "number": 65.0,
+          "unit": "liters"
+        },
+        "price": "165.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Sportlite 25 Pack",
+        "weight": {
+          "number": 1.66,
+          "unit": "to"
+        },
+        "price": "125.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Hydraulics Reservoir - 2 Liters",
+        "weight": {
+          "number": 7.4,
+          "unit": "ounces"
+        },
+        "price": "52.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Ariel 55 Pack - Women's",
+        "weight": {
+          "number": 52.0,
+          "unit": "to"
+        },
+        "price": "300.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "AMG 75 Pack",
+        "weight": {
+          "number": 75.0,
+          "unit": "to"
+        },
+        "price": "440.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Jade 24 LT Pack - Women's",
+        "weight": {
+          "number": 2.23,
+          "unit": "lbs"
+        },
+        "price": "149.95"
+      },
+      {
+        "name": "Backpack",
+        "description": "Tarn 12 Pack - Kids'",
+        "weight": {
+          "number": 0.75,
+          "unit": "lbs"
+        },
+        "price": "39.95"
+      },
+      {
+        "name": "Backpack",
+        "description": "Hydraulics Reservoir - 3 Liters",
+        "weight": {
+          "number": 8.3,
+          "unit": "ounces"
+        },
+        "price": "55.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Southwest 40 Pack",
+        "weight": {
+          "number": 40.0,
+          "unit": "liters"
+        },
+        "price": "349.00 - 369.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Traverse 32 Pack - Men's",
+        "weight": {
+          "number": 2.5,
+          "unit": "to"
+        },
+        "price": "159.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Kestrel 48 Pack - Men's",
+        "weight": {
+          "number": 46.0,
+          "unit": "to"
+        },
+        "price": "220.00"
+      },
+      {
+        "name": "Backpack",
+        "description": "Ultralight Dry Sack",
+        "weight": {
+          "number": 0.06,
+          "unit": "to"
+        },
+        "price": "18.00 - 34.00"
+      }
+    ]
+  }
+]
