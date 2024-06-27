@@ -6,7 +6,7 @@ import { Pie } from 'react-chartjs-2';
 
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-import Category from "@/components/custom/home/Category";
+import Category from "@/components/custom/packs/Category";
 import { Check, CirclePlus, Link, PieChart, Save } from "lucide-react";
 
 
@@ -24,7 +24,7 @@ import { Input } from "@/components/ui/input";
 import { Navigation } from "@/components/custom/Navigation";
 import axios from "axios";
 import { useSession } from "next-auth/react";
-import { getTotalCategoryWeight, getTotalWeight, convertToLbs } from "@/lib/weights";
+import { getTotalCategoryWeight, getTotalWeight } from "@/lib/weights";
 import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "@radix-ui/react-toast";
 import { errorToast } from "@/lib/error-toast";
@@ -73,7 +73,7 @@ export default function Pack({ params }) {
       setPackId(id);
 
       const updatedCategoryElems = categories.map(category => (
-        <Category data={category} />
+        <Category data={category}/>
       ));
       
       setCategoryElems(updatedCategoryElems);
@@ -152,8 +152,9 @@ export default function Pack({ params }) {
         const itemDescription = itemElem.querySelector("#itemDescription").value;
         const itemPrice = itemElem.querySelector("#itemPrice").value;
         const itemWeightNumber = itemElem.querySelector("#itemWeightNumber").value;
-        const itemWeightUnit = itemElem.querySelector("#itemWeightUnit").innerText;
+        const itemWeightUnit = itemElem.querySelector("#itemWeightUnit").value;
         const itemAmount = itemElem.querySelector("#itemAmount").value;
+        const itemUrl = itemElem.querySelector("#itemUrl").innerText;
         
         category.items.push({
           "name": itemName, 
@@ -163,7 +164,8 @@ export default function Pack({ params }) {
             "number": itemWeightNumber, 
             "unit": itemWeightUnit
           }, 
-          "amount": itemAmount
+          "amount": itemAmount, 
+          "url": itemUrl
         });
 
       })
@@ -220,7 +222,7 @@ export default function Pack({ params }) {
 
       <div className="flex flex-row m-5 gap-1">
 
-        <Input className="w-96 text-2xl" placeholder="Pack name" onChange={event => {setPackName(event.target.value)}} defaultValue={packName} maxlength={32}/>
+        <Input className="w-96 text-2xl" placeholder="Pack name" onChange={event => {setPackName(event.target.value)}} defaultValue={packName} maxLength={32}/>
 
         <Button className="flex gap-2" onClick={savePack} disabled={savedChanges || !packData || !session || packData.ownerId != session.sub}>
           {savedChanges ? (
@@ -272,10 +274,10 @@ export default function Pack({ params }) {
                       </span>
                     </TableCell>
                     <TableCell>
-                      ${getTotalCategoryWeight(category.items)}
+                      ${getTotalCategoryPrice(category.items)}
                     </TableCell>
                     <TableCell>
-                      {getTotalCategoryPrice(category.items)}
+                      {getTotalCategoryWeight(category.items)}
                     </TableCell>
                   </TableRow>
                 )) : <></>}

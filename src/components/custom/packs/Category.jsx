@@ -71,7 +71,7 @@ export default function Category(props) {
                   </PopoverContent>
                 </Popover>
 
-                <Input defaultValue={data ? data.name : ""} className="text-2xl border-none w-[30rem]" placeholder="Category name" id="categoryName" onChange={onInputChange} maxLength={20}/>
+                <Input defaultValue={data ? data.name : ""} className="text-2xl border-none w-[30rem]" placeholder="Category name" id="categoryName" onChange={onInputChange} maxLength={32}/>
 
                 <div id="categoryColor" className="hidden">
                   {color}

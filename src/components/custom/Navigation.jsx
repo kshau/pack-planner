@@ -29,7 +29,7 @@ export function Navigation(props) {
 
         <div>
 
-            <div className="w-full h-16 bg-white fixed top-0 border-b flex gap-5 p-3 pl-5 z-[1]">
+            <div className="w-full h-16 bg-background fixed top-0 border-b flex gap-5 p-3 pl-5 z-[1]">
 
                 <img className="w-10 h-10" src="/assets/logo.png"></img>
 
