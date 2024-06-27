@@ -41,7 +41,7 @@ export default function Pack({ params }) {
   const [packId, setPackId] = useState("");
   const [savedChanges, setSavedChanges] = useState(false);
 
-  const [categoryElems, setCategoryElems] = useState([]);
+  const [itemCategoryElems, setCategoryElems] = useState([]);
 
   const [pieChartData, setPieChartData] = useState({
     "labels": [],
@@ -68,20 +68,19 @@ export default function Pack({ params }) {
       delete pack.ownerId;
       setPackData(pack);
 
-      const {id, name, categories} = pack;
+      const {id, name, itemCategories} = pack;
       setPackName(name);
       setPackId(id);
 
-      const updatedCategoryElems = categories.map(category => (
-        <Category data={category}/>
+      const updatedCategoryElems = itemCategories.map(itemCategory => (
+        <Category data={itemCategory}/>
       ));
       
       setCategoryElems(updatedCategoryElems);
 
     })
     .catch(err => {
-      toast(errorToast);
-      console.error(err);
+      location.href = "/";
     })
 
   }
@@ -90,7 +89,7 @@ export default function Pack({ params }) {
 
     axios.post("/api/savePack", 
       {
-        pack: {categories: packData.categories, name: packName, id: packId}
+        pack: {itemCategories: packData.itemCategories, name: packName, id: packId}
       }, 
       { withCookies: true }
     ).then(response => {
@@ -127,22 +126,22 @@ export default function Pack({ params }) {
 
     const data = {
       "name": packName,
-      "categories": []
+      "itemCategories": []
     }
 
-    const categoryElems = document.querySelectorAll("#categoryElem");
-    const categoryElemsArr = Array.from(categoryElems);
+    const itemCategoryElems = document.querySelectorAll("#itemCategoryElem");
+    const itemCategoryElemsArr = Array.from(itemCategoryElems);
 
-    categoryElemsArr.forEach(elem => {
+    itemCategoryElemsArr.forEach(elem => {
       
-      const categoryName = elem.querySelector("#categoryName").value;
-      const categoryColor = elem.querySelector("#categoryColor").innerText;
+      const itemCategoryName = elem.querySelector("#itemCategoryName").value;
+      const itemCategoryColor = elem.querySelector("#itemCategoryColor").innerText;
 
       const itemElems = elem.querySelectorAll("#itemElem");
 
-      const category = {
-        "name": categoryName, 
-        "color": categoryColor,
+      const itemCategory = {
+        "name": itemCategoryName, 
+        "color": itemCategoryColor,
         "items": []
       }
 
@@ -156,7 +155,7 @@ export default function Pack({ params }) {
         const itemAmount = itemElem.querySelector("#itemAmount").value;
         const itemUrl = itemElem.querySelector("#itemUrl").innerText;
         
-        category.items.push({
+        itemCategory.items.push({
           "name": itemName, 
           "description": itemDescription, 
           "price": itemPrice,
@@ -170,7 +169,7 @@ export default function Pack({ params }) {
 
       })
 
-      data.categories.push(category);
+      data.itemCategories.push(itemCategory);
     })
 
     
@@ -187,13 +186,13 @@ export default function Pack({ params }) {
     const proportions = [];
     const colors = [];
 
-    data.categories.forEach(category => {
+    data.itemCategories.forEach(itemCategory => {
 
-      const totalWeight = getTotalCategoryWeight(category.items);
+      const totalWeight = getTotalCategoryWeight(itemCategory.items);
 
       proportions.push(totalWeight);
-      labels.push(category.name);
-      colors.push(category.color);
+      labels.push(itemCategory.name);
+      colors.push(itemCategory.color);
 
     })
     
@@ -218,7 +217,7 @@ export default function Pack({ params }) {
 
   return (
     
-    <Navigation>
+    <Navigation current="Packs">
 
       <div className="flex flex-row m-5 gap-1">
 
@@ -265,19 +264,19 @@ export default function Pack({ params }) {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {packData ? packData.categories.map(category => (
+              {packData ? packData.itemCategories.map(itemCategory => (
                   <TableRow>
                     <TableCell className="flex flex-row gap-2">
-                      <div style={{backgroundColor: category.color}} className="w-5 h-5"></div>
+                      <div style={{backgroundColor: itemCategory.color}} className="w-5 h-5"></div>
                       <span>
-                        {category.name}
+                        {itemCategory.name}
                       </span>
                     </TableCell>
                     <TableCell>
-                      ${getTotalCategoryPrice(category.items)}
+                      ${parseFloat(getTotalCategoryPrice(itemCategory.items)).toLocaleString()}
                     </TableCell>
                     <TableCell>
-                      {getTotalCategoryWeight(category.items)}
+                      {getTotalCategoryWeight(itemCategory.items).toLocaleString()}
                     </TableCell>
                   </TableRow>
                 )) : <></>}
@@ -288,10 +287,10 @@ export default function Pack({ params }) {
                   Total:
                 </TableCell>
                 <TableCell className="font-bold">
-                  ${packData ? getTotalPrice(packData.categories) : ""}
+                  ${packData ? parseFloat(getTotalPrice(packData.itemCategories)).toLocaleString() : ""}
                 </TableCell>
                 <TableCell className="font-bold">
-                  {packData ? getTotalWeight(packData.categories) : ""}
+                  {packData ? getTotalWeight(packData.itemCategories).toLocaleString() : ""}
                 </TableCell>
               </TableRow>
             </TableFooter>
@@ -300,7 +299,7 @@ export default function Pack({ params }) {
         </CardContent>
       </Card>
 
-      {categoryElems}
+      {itemCategoryElems}
 
         <Button className="flex gap-2 m-5" onClick={addCategoryElem}>
           <CirclePlus />

@@ -10,17 +10,17 @@ export default function Home() {
         {
             name: "Google", 
             value: "google",
-            icon: "/assets/auth-providers/google.png"
+            icon: "/assets/auth-provider-icons/google.png"
         }, 
         {
             name: "Discord", 
             value: "discord",
-            icon: "/assets/auth-providers/discord.png"
+            icon: "/assets/auth-provider-icons/discord.png"
         }, 
         {
             name: "Reddit", 
             value: "reddit",
-            icon: "/assets/auth-providers/reddit.png"
+            icon: "/assets/auth-provider-icons/reddit.png"
         }, 
     ]
 

@@ -7,23 +7,26 @@ import {
 } from "@/components/ui/popover"
 import { Button } from "../ui/button";
 
-function NavigationItem(props) {
-
-    const {link, children} = props;
-
-    return (
-        <a href={link} className="text-lg hover:underline p-2 transition-all">
-            {children}
-        </a>
-    )
-
-}
-
 export function Navigation(props) {
 
-    const {children} = props;
+    const {current, children} = props;
 
     const { data: session } = useSession();
+
+    const navLinks = [
+        {
+            name: "Home", 
+            url: "/"
+        }, 
+        {
+            name: "Packs", 
+            url: "/packs"
+        }, 
+        {
+            name: "About us", 
+            url: "/about-us"
+        }
+    ]
 
     return (
 
@@ -33,9 +36,12 @@ export function Navigation(props) {
 
                 <img className="w-10 h-10" src="/assets/logo.png"></img>
 
-                <NavigationItem link="/">Home</NavigationItem>
-                <NavigationItem link="/packs">Packs</NavigationItem>
-                <NavigationItem link="/about">About us</NavigationItem>
+                {navLinks.map(link => (
+                    <a href={link.url} className={`text-lg hover:underline p-2 transition-all ${(current == link.name) ? "underline" : ""}`}>
+                        {link.name}
+                    </a>
+                ))}
+
                 <Popover>
                     <PopoverTrigger asChild>
                         <img src={session ? session.user.image : "/assets/default_avatar.png"} className="w-10 h-10 rounded-full absolute right-5 hover:cursor-pointer border" />

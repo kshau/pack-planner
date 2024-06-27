@@ -1,12 +1,16 @@
-export const getTotalPrice = (categories) => {
+export const getTotalPrice = (itemCategories) => {
 
     let totalPrice = 0;
 
-    categories.forEach(category => {
+    itemCategories.forEach(itemCategory => {
 
-        totalPrice += parseFloat(getTotalCategoryPrice(category.items));
+        totalPrice += parseFloat(getTotalCategoryPrice(itemCategory.items));
 
     });
+
+    if (totalPrice > 1000000) {
+      totalPrice = 1000000;
+    }
 
     return parseFloat(totalPrice).toFixed(2);
 }
@@ -20,6 +24,10 @@ export const getTotalCategoryPrice = (items) => {
       totalPrice += item.price * (parseInt(item.amount) || 0);
 
     });
+
+    if (totalPrice > 1000000) {
+      totalPrice = 1000000;
+    }
 
     return parseFloat(totalPrice).toFixed(2);
 

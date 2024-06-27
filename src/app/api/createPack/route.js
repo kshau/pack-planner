@@ -28,7 +28,7 @@ export async function POST(request) {
             "id": packId,
             "ownerId": user.sub,
             "name": "My Camping List",
-            "categories": [
+            "itemCategories": [
               {
                 "name": "Essentials", 
                 "color": "#de5d54",

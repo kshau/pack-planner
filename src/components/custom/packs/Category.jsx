@@ -54,7 +54,7 @@ export default function Category(props) {
     return (
         <>
           {deleted ? "" : (
-            <Card className="m-5" id="categoryElem">
+            <Card className="m-5" id="itemCategoryElem">
             <CardHeader>
               <CardTitle className="flex flex-row">
 
@@ -71,9 +71,9 @@ export default function Category(props) {
                   </PopoverContent>
                 </Popover>
 
-                <Input defaultValue={data ? data.name : ""} className="text-2xl border-none w-[30rem]" placeholder="Category name" id="categoryName" onChange={onInputChange} maxLength={32}/>
+                <Input defaultValue={data ? data.name : ""} className="text-2xl border-none w-[30rem]" placeholder="Category name" id="itemCategoryName" onChange={onInputChange} maxLength={32}/>
 
-                <div id="categoryColor" className="hidden">
+                <div id="itemCategoryColor" className="hidden">
                   {color}
                 </div>
 

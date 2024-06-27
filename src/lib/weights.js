@@ -19,15 +19,19 @@ export const convertToLbs = (weight) => {
 
 }
 
-export const getTotalWeight = (categories) => {
+export const getTotalWeight = (itemCategories) => {
 
     let totalWeight = 0;
 
-    categories.forEach(category => {
+    itemCategories.forEach(itemCategory => {
 
-      totalWeight += getTotalCategoryWeight(category.items);
+      totalWeight += getTotalCategoryWeight(itemCategory.items);
 
     });
+
+    if (totalWeight > 10000) {
+      totalWeight = 10000;
+    }
 
     return Math.round(totalWeight * 100) / 100;
 }
@@ -43,6 +47,10 @@ export const getTotalCategoryWeight = (items) => {
       totalWeight += weightLbs * (parseInt(item.amount) || 0);
 
     });
+
+    if (totalWeight > 10000) {
+      totalWeight = 10000;
+    }
 
     return Math.round(totalWeight * 100) / 100;
 

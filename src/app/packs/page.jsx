@@ -106,7 +106,7 @@ export default function Packs() {
     }, [session, status]);
 
     return (
-        <Navigation>
+        <Navigation current="Packs">
             <div className="p-5">
                 <span className="text-4xl font-bold">
                     My Packs
@@ -127,10 +127,10 @@ export default function Packs() {
                                 {pack.name}
                             </TableCell>
                             <TableCell>
-                                ${getTotalPrice(pack.categories)}
+                                ${getTotalPrice(pack.itemCategories)}
                             </TableCell>
                             <TableCell>
-                                {getTotalWeight(pack.categories)}
+                                {getTotalWeight(pack.itemCategories)}
                             </TableCell>
                             <TableCell>
                                 <Button className="flex gap-2" onClick={() => {location.href = `/packs/${pack.id}`}}>

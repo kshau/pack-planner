@@ -4,7 +4,7 @@ const packSchema = new mongoose.Schema({
     id: { type: String, required: true },
     ownerId: { type: String, required: true },
     name: { type: String, default: 'Untitled Pack', minLength: 1, maxLength: 32, required: true },
-    categories: [{
+    itemCategories: [{
         name: { type: String, default: "", maxLength: 32 },
         color: { type: String, default: '#000000', required: true },
         items: [
@@ -15,9 +15,9 @@ const packSchema = new mongoose.Schema({
                     number: { type: Number, default: 0, max: 10000 },
                     unit: { type: String, enum: ["oz", "lbs", "g", "kg"], default: "lbs" }
                 },
-                price: { type: Number, default: 0, max: 10000 },
+                price: { type: Number, default: 0, max: 1000000 },
                 amount: { type: Number, default: 1, max: 10000 }, 
-                url: {type: String, default: ""}
+                url: {type: String, default: "", maxLength: 64}
             }
         ]
     }]
