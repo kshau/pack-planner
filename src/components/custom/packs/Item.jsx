@@ -10,6 +10,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { PopoverClose } from "@radix-ui/react-popover";
 import validator from "validator";
 import axios from "axios";
+import { loadedStoresData } from "@/lib/stores-data";
 
 export default function Item(props) {
 
@@ -54,19 +55,8 @@ export default function Item(props) {
         componentRef.current.querySelector("#itemWeightUnit").value = unit;
     }
 
-    const getStoresData = () => {
-        axios.get("/api/getStoresData")
-            .then(response => {
-                const {stores} = response.data;
-                setStoresData(stores);
-            })
-            .catch(err => {
-                console.error(err);
-            })
-    }
-
     useEffect(() => {
-        getStoresData();
+        setStoresData(loadedStoresData);
     }, [])
 
     return (
