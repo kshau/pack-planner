@@ -1,179 +1,63 @@
 "use client"
-import { Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
-import {Chart, ArcElement} from 'chart.js'
-import { Pie } from 'react-chartjs-2';
 
-import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import Category from "@/components/custom/home/Category";
-import { CirclePlus } from "lucide-react";
-
-Chart.register(ArcElement);
-
-const e = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-  datasets: [
-    {
-      label: 'Votes',
-      data: [5, 1],
-      backgroundColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
-
-const itemData = [
-  {
-    "name": "Essentials", 
-    "items": [
-      {
-        "name": "Backpack", 
-        "description": "Banana description ahahahahahahaha", 
-        "weight": {
-          "number": 30, 
-          "unit": "lbs"
-        }, 
-        "amount": "1"
-      }
-    ]
-  }
-]
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card";
+import { signIn } from "next-auth/react"
 
 export default function Home() {
 
-  const [categoryElems, setCategoryElems] = useState([]);
-  const [pieChartData, setPieChartData] = useState({
-    "labels": [],
-    "datasets": [
-      {
-        "label": "",
-        "data": [],
-        "backgroundColor": [],
-        "borderWidth": 0,
-      },
-    ],
-  });
+    const authProviders = [
+        {
+            name: "Google", 
+            value: "google",
+            icon: "/assets/auth-providers/google.png"
+        }, 
+        {
+            name: "Discord", 
+            value: "discord",
+            icon: "/assets/auth-providers/discord.png"
+        }, 
+        {
+            name: "Reddit", 
+            value: "reddit",
+            icon: "/assets/auth-providers/reddit.png"
+        }, 
+    ]
 
-  useEffect(() => {
-    const updatedCategoryElems = itemData.map(category => (
-      <Category key={category.name} data={category} />
-    ));
-    
-    setCategoryElems(updatedCategoryElems);
-  }, []);
+    return (
+        <div className="flex justify-center h-screen">
+            <Card className="w-[40rem] h-[43rem] self-center">
+                <CardContent className="flex justify-center">
 
+                    <div className="flex flex-col gap-10 mt-14">
+                        <img src="/assets/logo.png" className="w-48 h-48 self-center"/>
 
-  const addCategoryElem = () => {
-    
-    setCategoryElems(o => [...o, <Category/>]);
-  }
+                        <span className="self-center font-bold text-5xl">Pack Planner</span>
 
-  const getItemData = () => {
+                        <div className="flex flex-col gap-2">
+                            {authProviders.map(provider => (
+                                <Button onClick={() => {signIn(provider.value, {callbackUrl: `${location.href}/packs`})}} variant="outline" className="flex gap-5 p-7 w-[25rem] self-center">
+                                    <img src={provider.icon} className="h-8"/>
+                                    <span className="text-2xl">
+                                        Log in with {provider.name}
+                                    </span>
+                                </Button>
+                            ))}
+                        </div>
 
-    const data = [];
+                        <div className="px-10 text-center text-slate-400 bottom-0">
+                            <span>By signing in you confirm that you have read and understood our </span>
+                            <a href="/terms-of-service" className="underline">terms of service</a>
+                            <span> and our </span>
+                            <a href="/privacy-policy" className="underline">privacy policy</a>
+                            <span>.</span>
+                        </div>
 
-    const categoryElems = document.querySelectorAll("#categoryElem");
-    const categoryElemsArr = Array.from(categoryElems);
+                    </div>
 
-    categoryElemsArr.forEach(elem => {
-      
-      const categoryName = elem.querySelector("#categoryName").value;
+                </CardContent>
+            </Card>
+        </div>
+    )
 
-      const itemElems = elem.querySelectorAll("#itemElem");
-
-      const category = {
-        "name": categoryName, 
-        "items": []
-      }
-
-      itemElems.forEach(itemElem => {
-
-        const itemName = itemElem.querySelector("#itemName").value;
-        const itemDescription = itemElem.querySelector("#itemDescription").value;
-        const itemWeightNumber = itemElem.querySelector("#itemWeightNumber").value;
-        const itemAmount = itemElem.querySelector("#itemAmount").value;
-        
-        category.items.push({
-          "name": itemName, 
-          "description": itemDescription, 
-          "weight": {
-            "number": itemWeightNumber
-          }, 
-          "amount": itemAmount
-        });
-
-      })
-
-      data.push(category);
-    })
-
-    
-    return data;
-
-  }
-
-  const updatePieChart = () => {
-
-    const data = getItemData();
-
-    const labels = [];
-    const proportions = [];
-
-    for (const category in data) {
-
-      var totalWeight = 0;
-
-      for (const item in category.items) {
-        totalWeight += parseFloat(item.weight.number) * parseInt(item.amount);
-      }
-
-      proportions.push(totalWeight);
-      labels.push(category.name);
-    }
-
-    setPieChartData({
-      "labels": labels, 
-      "datasets": {
-        "label": "Weights", 
-        "data": proportions, 
-        "backgroundColor": ["#000000", "#ffffff"], 
-        "borderWidth": 1
-      }
-    })
-
-  }
-
-  return (
-    
-    <div>
-
-      <Card className="m-5">
-        <CardHeader>
-          <CardTitle>
-            Summary
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="w-80">
-          <Pie data={pieChartData}/>
-          <Button onClick={updatePieChart}>
-            Update Chart
-          </Button>
-        </CardContent>
-      </Card>
-
-      {categoryElems}
-
-        <Button className="flex gap-2 m-5" onClick={addCategoryElem}>
-          <CirclePlus />
-          <span>
-            Add category
-          </span>
-        </Button>
-
-    </div>
-
-  )
 }
