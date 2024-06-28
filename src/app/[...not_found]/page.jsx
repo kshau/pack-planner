@@ -9,8 +9,8 @@ export default function PageNotFound() {
 
     return (
         <Navigation>
-            <div className="flex justify-center">
-                    <Card className="w-[35rem] self-center mb-36 mt-20">
+            <div className="flex justify-center h-screen mt-[-5rem]">
+                    <Card className="w-[35rem] self-center">
                         <CardContent className="flex justify-center flex-col">
                             <span className="text-8xl mt-10 self-center">404</span>
                             <Tent className="self-center mt-10" size={130}/>
