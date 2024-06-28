@@ -19,13 +19,13 @@ export const convertToLbs = (weight) => {
 
 }
 
-export const getTotalWeight = (itemCategories) => {
+export const getTotalWeight = (categories) => {
 
     let totalWeight = 0;
 
-    itemCategories.forEach(itemCategory => {
+    categories.forEach(category => {
 
-      totalWeight += getTotalCategoryWeight(itemCategory.items);
+      totalWeight += getTotalCategoryWeight(category.items);
 
     });
 
