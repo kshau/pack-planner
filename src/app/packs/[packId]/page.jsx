@@ -29,6 +29,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "@radix-ui/react-toast";
 import { errorToast } from "@/lib/error-toast";
 import { getTotalCategoryPrice, getTotalPrice } from "@/lib/prices";
+import PageNotFound from "@/app/[...not_found]/page";
 
 Chart.register(ArcElement);
 
@@ -40,6 +41,7 @@ export default function Pack({ params }) {
   const [packName, setPackName] = useState("");
   const [packId, setPackId] = useState("");
   const [savedChanges, setSavedChanges] = useState(false);
+  const [packNotFound, setPackNotFound] = useState(false);
 
   const [itemCategoryElems, setCategoryElems] = useState([]);
 
@@ -80,7 +82,7 @@ export default function Pack({ params }) {
 
     })
     .catch(err => {
-      location.href = "/";
+      setPackNotFound(true);
     })
 
   }
@@ -215,9 +217,13 @@ export default function Pack({ params }) {
 
   }, []);
 
+  if (packNotFound) {
+    return <PageNotFound/>
+  }
+
   return (
     
-    <Navigation current="Packs">
+    <Navigation>
 
       <div className="flex flex-row m-5 gap-1">
 
