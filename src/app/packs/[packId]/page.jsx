@@ -74,8 +74,8 @@ export default function Pack({ params }) {
       setPackName(name);
       setPackId(id);
 
-      const updatedCategoryElems = itemCategories.map(itemCategory => (
-        <Category data={itemCategory}/>
+      const updatedCategoryElems = itemCategories.map((itemCategory, index) => (
+        <Category data={itemCategory} key={index}/>
       ));
       
       setCategoryElems(updatedCategoryElems);

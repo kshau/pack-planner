@@ -36,8 +36,8 @@ export function Navigation(props) {
 
                 <img className="w-10 h-10" src="/assets/logo.png"></img>
 
-                {navLinks.map(link => (
-                    <a href={link.url} className={`text-lg hover:underline p-2 transition-all ${(current == link.name) ? "underline" : ""}`}>
+                {navLinks.map((link, index) => (
+                    <a href={link.url} className={`text-lg hover:underline p-2 transition-all ${(current == link.name) ? "underline" : ""}`}  key={index}>
                         {link.name}
                     </a>
                 ))}

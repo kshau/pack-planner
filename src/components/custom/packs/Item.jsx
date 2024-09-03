@@ -9,7 +9,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { PopoverClose } from "@radix-ui/react-popover";
 import validator from "validator";
-import { loadedStoresData } from "@/lib/stores-data";
 import { Separator } from "@/components/ui/separator";
 
 export default function Item(props) {
@@ -22,7 +21,6 @@ export default function Item(props) {
     const [url, setUrl] = useState(data ? data.url : "");
 
     const [deleted, setDeleted] = useState(false);
-    const [storesData, setStoresData] = useState(null);
 
     const deleteSelf = () => {
         setDeleted(true);
@@ -54,8 +52,6 @@ export default function Item(props) {
     }
 
     useEffect(() => {
-        setStoresData(loadedStoresData);
-        console.log(loadedStoresData);
     }, [])
 
     return (
@@ -66,54 +62,6 @@ export default function Item(props) {
                     <TableCell>
                         <div className="flex flex-row gap-1">
                             <Input defaultValue={data ? data.name : ""} className="w-64" placeholder="Name" id="itemName" maxLength={32}/>
-                            <Popover>
-                                <PopoverTrigger asChild>
-                                    <Button variant="outline">
-                                        <Search/>
-                                    </Button>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-[37rem]">
-                                    <Tabs defaultValue={storesData ? storesData[0].value : ""} className="w-full">
-                                        <TabsList className="w-full">
-                                            {storesData ? storesData.map(store => (
-                                                <TabsTrigger value={store.id}>{store.name}</TabsTrigger>
-                                            )) : <></>}
-                                        </TabsList>
-                                        {storesData ? storesData.map(store => (
-                                            <ScrollArea className="rounded-md pr-3">
-                                                <TabsContent value={store.id} className="h-96 w-full">
-                                                    <div className="grid grid-cols-3 gap-2">
-                                                        {store.productCategories.map(category => (
-                                                            <div className="flex flex-col gap-5 mt-2">
-                                                                <span className="font-bold text-xl">
-                                                                    {category.name}
-                                                                </span>
-                                                                {category.products.map(item => (
-                                                                    <PopoverClose asChild>
-                                                                        <Card className="w-[12rem] hover:cursor-pointer hover:shadow-md transition-all" onClick={() => {autofill(item)}}>
-                                                                            <CardContent className="flex flex-col gap-2">
-                                                                                <img src={item.image} className="w-20 self-center mt-2"/>
-                                                                                <span className="self-center font-bold text-center overflow-hidden">
-                                                                                    {item.name}
-                                                                                </span>
-                                                                                <div className="self-center">
-                                                                                    <span>${item.price} •</span>
-                                                                                    <span> {item.weight.number} {item.weight.unit}</span>
-                                                                                </div>
-                                                                            </CardContent>
-                                                                        </Card>
-                                                                    </PopoverClose>
-                                                                ))}
-                                                                <Separator className="w-screen"/>
-                                                            </div>
-                                                        ))}
-                                                    </div>
-                                                </TabsContent>
-                                            </ScrollArea>
-                                        )) : <></>}
-                                    </Tabs>
-                                </PopoverContent>
-                            </Popover>
                         </div>
                     </TableCell>
                     <TableCell>

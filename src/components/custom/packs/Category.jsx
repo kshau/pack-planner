@@ -37,8 +37,8 @@ export default function Category(props) {
 
     useEffect(() => {
     
-      const updatedItemElems = data ? data.items.map(item => (
-        <Item data={item}/>
+      const updatedItemElems = data ? data.items.map((item, index) => (
+        <Item data={item} key={index}/>
       )) : [<Item/>];
       setItemElems(updatedItemElems);
     }, []);

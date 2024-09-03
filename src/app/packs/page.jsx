@@ -122,7 +122,8 @@ export default function Packs() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {packs.map(pack => (<TableRow>
+                        {packs.map((pack, index) => (
+                        <TableRow key={index}>
                             <TableCell>
                                 {pack.name}
                             </TableCell>
