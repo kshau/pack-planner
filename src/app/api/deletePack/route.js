@@ -7,6 +7,7 @@ export async function POST(request) {
     try {
 
         const user = await getUserFromCookies(request.cookies);
+        console.log(request);
         const {packId} = await request.json();
 
         const pack = await Pack.findOne({id: packId});
