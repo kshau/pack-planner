@@ -93,7 +93,7 @@ export default function Pack({ params }) {
       {
         pack: {itemCategories: packData.itemCategories, name: packName, id: packId}
       }, 
-      { withCookies: true }
+      { withCredentials: true }
     ).then(response => {
 
       setSavedChanges(true);

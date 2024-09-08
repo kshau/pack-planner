@@ -49,7 +49,7 @@ export default function Packs() {
 
         axios.post("/api/createPack", 
             {}, 
-            {withCookies: true}
+            {withCredentials: true}
         ).then(response => {
             const {packId} = response.data;
             location.href = `/packs/${packId}`;
@@ -64,7 +64,7 @@ export default function Packs() {
 
         axios.post("/api/getMyPacks", 
             {}, 
-            {withCookies: true}
+            {withCredentials: true}
         ).then(response => {
             const {packs} = response.data;
             setPacks(packs);
@@ -80,7 +80,7 @@ export default function Packs() {
 
         axios.post("/api/deletePack", 
             {packId}, 
-            {withCookies: true}
+            {withCredentials: true}
         ).then(response => {
             getMyPacks();
         })
