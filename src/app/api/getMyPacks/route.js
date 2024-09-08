@@ -7,6 +7,7 @@ export async function POST(request) {
     try {
 
         const user = await getUserFromCookies(request.cookies);
+        console.log(request);
 
         const packs = await Pack.find({ownerId: user.sub});
     
