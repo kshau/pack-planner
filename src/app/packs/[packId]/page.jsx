@@ -42,6 +42,7 @@ export default function Pack({ params }) {
   const [packId, setPackId] = useState("");
   const [savedChanges, setSavedChanges] = useState(false);
   const [packNotFound, setPackNotFound] = useState(false);
+  const [allowEdit, setAllowEdit] = useState(false);
 
   const [itemCategoryElems, setCategoryElems] = useState([]);
 
@@ -71,6 +72,7 @@ export default function Pack({ params }) {
       setPackData(pack);
 
       const {id, name, itemCategories} = pack;
+      setAllowEdit(!(savedChanges || !packData || !session || pack.ownerId != session.sub));
       setPackName(name);
       setPackId(id);
 
@@ -229,7 +231,7 @@ export default function Pack({ params }) {
 
         <Input className="w-96 text-2xl" placeholder="Pack name" onChange={event => {setPackName(event.target.value)}} defaultValue={packName} maxLength={32}/>
 
-        <Button className="flex gap-2" onClick={savePack} disabled={savedChanges || !packData || !session || packData.ownerId != session.sub}>
+        <Button className="flex gap-2" onClick={savePack} disabled={!allowEdit}}>
           {savedChanges ? (
             <Check/>
           ) : (
