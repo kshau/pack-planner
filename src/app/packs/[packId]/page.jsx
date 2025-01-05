@@ -229,7 +229,7 @@ export default function Pack({ params }) {
 
         <Input className="w-96 text-2xl" placeholder="Pack name" onChange={event => {setPackName(event.target.value)}} defaultValue={packName} maxLength={32}/>
 
-        <Button className="flex gap-2" onClick={savePack} disabled={savedChanges || !packData || !session || pack.ownerId != session.sub}>
+        <Button className="flex gap-2" onClick={savePack} disabled={savedChanges || !packData || !session || packData.ownerId != session.sub}>
           {savedChanges ? (
             <Check/>
           ) : (
